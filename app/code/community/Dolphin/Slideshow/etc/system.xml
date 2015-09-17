@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <sections>
+        <slideshow translate="label" module="slideshow">
+            <label>Slideshow</label>
+			<class>slideshow-section</class>
+            <tab>general</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>9999</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+			<groups>
+                <general translate="label">
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enable translate="label comment">
+                            <label>Enable</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>							
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enable>
+                    </fields>
+                </general>
+                <!--<effects translate="label">
+                    <label>Effects</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+						<easing translate="label comment">
+							<label>Easing</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>slideshow/source_easing</source_model>							
+							<sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</easing>
+						<mobile_easing translate="label comment">
+							<label>Mobile Easing</label>
+							<frontend_type>select</frontend_type>
+							<comment>For mobile devices</comment>
+                            <source_model>slideshow/source_easing</source_model>							
+							<sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </mobile_easing>
+						<fx translate="label comment">
+							<label>Fx</label>
+							<frontend_type>multiselect</frontend_type>
+							<comment>Select multiple rows for more than one effect</comment>
+                            <source_model>slideshow/source_fx</source_model>							
+							<sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </fx>
+						<mobile_fx translate="label comment">
+							<label>Mobile Fx</label>
+							<frontend_type>multiselect</frontend_type>
+							<comment>Select multiple rows for more than one effect (For mobile devices)</comment>
+                            <source_model>slideshow/source_fx</source_model>							
+							<sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </mobile_fx>
+						<loader>
+							<label>Loader</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>slideshow/source_loader</source_model>							
+							<sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</loader>
+						<loader_color>
+							<label>Loader Color</label>
+							<frontend_type>text</frontend_type>
+							<validate>color</validate>
+							<sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</loader_color>
+						<loader_bg_color>
+							<label>Loader Background Color</label>
+							<frontend_type>text</frontend_type>
+							<validate>color</validate>
+							<sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</loader_bg_color>
+						<loader_opacity>
+							<label>Loader Opacity</label>
+							<frontend_type>text</frontend_type>
+							<validate>required-entry validate-number validate-digits-range digits-range-0-1</validate>
+							<sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</loader_opacity>
+						<loader_padding>
+							<label>Loader Padding</label>
+							<frontend_type>text</frontend_type>
+							<comment>how many empty pixels you want to display between the loader and its background</comment>
+							<validate>required-entry validate-number</validate>
+							<sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</loader_padding>
+						<loader_stroke>
+							<label>Loader Stroke</label>
+							<frontend_type>text</frontend_type>
+							<comment>the thickness both of the pie loader and of the bar loader</comment>
+							<validate>required-entry validate-number</validate>
+							<sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</loader_stroke>
+						<navigation translate="label comment">
+							<label>Navigation</label>
+							<frontend_type>select</frontend_type>
+							<comment>if true the navigation button (prev, next and play/stop buttons) will be visible, if false they will be always hidden</comment>
+                            <source_model>slideshow/source_trueFalse</source_model>							
+							<sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</navigation>
+						<navigation_on_hover translate="label comment">
+							<label>Navigation on Hover</label>
+							<comment>if true the navigation button (prev, next and play/stop buttons) will be visible on hover state only, if false they will be visible always</comment>
+							<frontend_type>select</frontend_type>
+                            <source_model>slideshow/source_trueFalse</source_model>							
+							<sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</navigation_on_hover>
+						<mobile_nav_hover translate="label comment">
+							<label>Mobile Navigation Hover</label>
+							<comment>same as above, but only for mobile devices</comment>
+							<frontend_type>select</frontend_type>
+                            <source_model>slideshow/source_trueFalse</source_model>							
+							<sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</mobile_nav_hover>
+						<opacity_on_grid translate="label comment">
+							<label>Opacity on Grid</label>
+							<comment>Decide to apply a fade effect to blocks and slices</comment>
+							<frontend_type>select</frontend_type>
+                            <source_model>slideshow/source_trueFalse</source_model>							
+							<sort_order>14</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</opacity_on_grid>
+
+
+                    </fields>
+                </effects>-->
+			</groups>
+		</slideshow>
+	</sections>
+</config>

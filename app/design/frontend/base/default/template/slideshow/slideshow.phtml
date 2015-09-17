@@ -1,0 +1,36 @@
+<?php if(Mage::getStoreConfig("slideshow/general/enable")): ?>
+    <?php
+        $bannerCollections = Mage::getModel('slideshow/slideshow')
+        ->getCollection()
+        ->addFieldToFilter(
+            array('stores', 'stores'),
+            array(
+                array('finset'=>Mage::app()->getStore()->getId()), 
+                array('eq'=>'0'))
+        )
+        ->addFieldToFilter('filename', array('neq' => ''))
+        ->addFieldToFilter('status', array('eq' => '1'))->setOrder("sort_order","ASC"); 
+    ?>
+    <?php if(count($bannerCollections) > 0): ?>
+    <div id="main-slider">
+        <?php foreach ($bannerCollections as $item): ?>
+            <div class="item">
+                <?php if($item->getSlideUrl()):?>
+                <a href="<?php echo $item->getSlideUrl()?>" class="main-link" target="<?php echo $item->getSlideTarget() ?>"></a>
+                <?php endif; ?>
+                <img src="<?php echo Mage::getUrl('media/') . $item->getFilename()?>" class="lazyOwl" data-src="<?php echo Mage::getUrl('media/') . $item->getFilename()?>"/>
+            </div>    
+        <?php endforeach;?>
+    </div>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            jQuery("#main-slider").owlCarousel({
+                singleItem: true,
+                pagination: false,
+                lazyLoad: true,
+                lazyEffect:false
+            });
+        });
+    </script>
+    <?php endif; ?>
+<?php endif; ?>
