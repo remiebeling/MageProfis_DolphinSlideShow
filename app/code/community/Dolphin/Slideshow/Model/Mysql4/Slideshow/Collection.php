@@ -25,6 +25,10 @@ class Dolphin_Slideshow_Model_Mysql4_Slideshow_Collection extends Mage_Core_Mode
                 $store = array($store->getId());
             }
 
+            if (!is_array($store)) {
+                $store = array($store);
+            }
+
             if ($withAdmin) {
                 $store[] = Mage_Core_Model_App::ADMIN_STORE_ID;
             }
