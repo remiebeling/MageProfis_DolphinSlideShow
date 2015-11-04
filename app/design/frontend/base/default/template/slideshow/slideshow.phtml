@@ -1,15 +1,12 @@
 <?php if (Mage::getStoreConfig('slideshow/general/enable')): ?>
     <?php
         $bannerCollections = Mage::getModel('slideshow/slideshow')
-        ->getCollection()
-        ->addFieldToFilter(
-            array('stores', 'stores'),
-            array(
-                array('finset'=>Mage::app()->getStore()->getId()),
-                array('eq'=>'0'))
-        )
-        ->addFieldToFilter('filename', array('neq' => ''))
-        ->addFieldToFilter('status', array('eq' => '1'))->setOrder("sort_order","ASC");
+            ->getCollection()
+            ->addStoreFilter()
+            ->addFieldToFilter('filename', array('neq' => ''))
+            ->addFieldToFilter('status', array('eq' => '1'))
+            ->setOrder('sort_order', 'ASC')
+        ;
     ?>
     <?php if (count($bannerCollections) > 0): ?>
     <div id="main-slider">

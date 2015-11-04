@@ -18,7 +18,7 @@ class Dolphin_Slideshow_Model_Mysql4_Slideshow_Collection extends Mage_Core_Mode
     public function addStoreFilter($store = null, $withAdmin = true)
     {
         if ($store === null) {
-            $store = Mage::app()->getStore()->getId();
+            $store = array(Mage::app()->getStore()->getId());
         }
         if (!Mage::app()->isSingleStoreMode()) {
             if ($store instanceof Mage_Core_Model_Store) {
