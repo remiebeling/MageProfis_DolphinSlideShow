@@ -5,7 +5,7 @@ class Dolphin_Slideshow_Block_Adminhtml_Slideshow_Grid extends Mage_Adminhtml_Bl
     public function __construct()
     {
         parent::__construct();
-        $this->setId('slideshow_grid');
+        $this->setId('slideshowGrid');
         // This is the primary key of the database
         $this->setDefaultSort('slideshow_id');
         $this->setDefaultDir('ASC');
@@ -13,18 +13,19 @@ class Dolphin_Slideshow_Block_Adminhtml_Slideshow_Grid extends Mage_Adminhtml_Bl
         $this->setUseAjax(true);
     }
 
+    protected function _getStore()
+    {
+        $storeId = (int)$this->getRequest()->getParam('store', 0);
+        return Mage::app()->getStore($storeId);
+    }
+
     protected function _prepareCollection()
     {
         $collection = Mage::getModel('slideshow/slideshow')->getCollection();
-
-        foreach ($collection as $item){
-            if ($item->getStores() && $item->getStores() != 0 ){
-                $item->setStores(explode(',', $item->getStores()));
-            } else {
-                $item->setStores(array('0'));
-            }
+        $store = $this->_getStore();
+        if ($store->getId()) {
+            $collection->addStoreFilter($store);
         }
-
         $this->setCollection($collection);
 
         return parent::_prepareCollection();
@@ -65,27 +66,21 @@ class Dolphin_Slideshow_Block_Adminhtml_Slideshow_Grid extends Mage_Adminhtml_Bl
             'sortable'  => true,
         ));
 
+        /**
+         * Check is single store mode
+         */
         if (!Mage::app()->isSingleStoreMode()) {
-            $this->addColumn('stores', array(
-             'header'        => Mage::helper('slideshow')->__('Store'),
-             'index'         => 'stores',
-             'type'          => 'store',
-             'store_all'     => true,
-             'store_view'    => true,
-             'sortable'      => false,
-             'filter_condition_callback'
-                 => array($this, '_filterStoreCondition'),
+            $this->addColumn('store_id', array(
+                'header'        => Mage::helper('slideshow')->__('Store View'),
+                'index'         => 'store_id',
+                'type'          => 'store',
+                'store_all'     => true,
+                'store_view'    => true,
+                'sortable'      => false,
+                'filter_condition_callback'
+                                => array($this, '_filterStoreCondition'),
             ));
-       }
-
-       /*if (!Mage::app()->isSingleStoreMode()) {
-            $this->addColumn('stores', array(
-                'header'        => Mage::helper('slideshow')->__('Store'),
-                'index'     => 'stores',
-                'type'      => 'store',
-                'store_view'=> true,
-            ));
-        }*/
+        }
 
         $this->addColumn('sort_order', array(
             'header'    => Mage::helper('slideshow')->__('Sort Order'),
@@ -120,12 +115,18 @@ class Dolphin_Slideshow_Block_Adminhtml_Slideshow_Grid extends Mage_Adminhtml_Bl
       return $this->getUrl('*/*/grid', array('_current'=>true));
     }
 
+    protected function _afterLoadCollection()
+    {
+        $this->getCollection()->walk('afterLoad');
+        parent::_afterLoadCollection();
+    }
+
     protected function _filterStoreCondition($collection, $column)
     {
-
         if (!$value = $column->getFilter()->getValue()) {
             return;
         }
+
         $this->getCollection()->addStoreFilter($value);
     }
 }

@@ -4,22 +4,40 @@ class Dolphin_Slideshow_Model_Mysql4_Slideshow_Collection extends Mage_Core_Mode
 {
     public function _construct()
     {
-        //parent::_construct();
+        parent::_construct();
         $this->_init('slideshow/slideshow');
     }
 
-    public function addStoreFilter($store, $withAdmin = true){
-
-        if ($store instanceof Mage_Core_Model_Store) {
-            $store = array($store->getId());
+    /**
+     * Add Filter by store
+     *
+     * @param int|Mage_Core_Model_Store $store
+     *
+     * @return Mage_Cms_Model_Mysql4_Page_Collection
+     */
+    public function addStoreFilter($store = null, $withAdmin = true)
+    {
+        if ($store === null) {
+            $store = Mage::app()->getStore()->getId();
         }
+        if (!Mage::app()->isSingleStoreMode()) {
+            if ($store instanceof Mage_Core_Model_Store) {
+                $store = array($store->getId());
+            }
 
-        if (!is_array($store)) {
-            $store = array($store);
+            if ($withAdmin) {
+                $store[] = Mage_Core_Model_App::ADMIN_STORE_ID;
+            }
+
+            $this->getSelect()
+                ->joinLeft(
+                    array('store_table' => $this->getTable('store')),
+                    'main_table.slideshow_id = store_table.slideshow_id',
+                    array()
+                )
+                ->where('store_table.store_id in (?)', $store)
+            ;
         }
-
-        $this->addFilter('stores', array('in' => $store));
-
         return $this;
     }
 }

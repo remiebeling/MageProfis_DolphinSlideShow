@@ -16,8 +16,8 @@ class Dolphin_Slideshow_Block_Adminhtml_Slideshow_Edit_Tab_Form extends Mage_Adm
         ));
 
         if (!Mage::app()->isSingleStoreMode()) {
-            $fieldset->addField('stores', 'multiselect', array(
-                'name'      => 'stores[]',
+            $fieldset->addField('store_id', 'multiselect', array(
+                'name'      => 'store_id[]',
                 'label'     => Mage::helper('slideshow')->__('Select Store'),
                 'title'     => Mage::helper('slideshow')->__('Select Store'),
                 'required'  => true,
@@ -25,8 +25,8 @@ class Dolphin_Slideshow_Block_Adminhtml_Slideshow_Edit_Tab_Form extends Mage_Adm
             ));
         }
         else {
-            $fieldset->addField('stores', 'hidden', array(
-                'name'      => 'stores[]',
+            $fieldset->addField('store_id', 'hidden', array(
+                'name'      => 'store_id[]',
                 'value'     => Mage::app()->getStore(true)->getId()
             ));
         }
