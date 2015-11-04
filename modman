@@ -1,8 +1,11 @@
-app/code/community/Dolphin/Slideshow/					app/code/community/Dolphin/Slideshow/
-app/design/adminhtml/base/default/layout/slideshow.xml			app/design/adminhtml/base/default/layout/slideshow.xml
-app/design/frontend/base/default/template/slideshow/			app/design/frontend/base/default/template/slideshow/
-app/design/frontend/base/default/layout/slideshow.xml			app/design/frontend/base/default/layout/slideshow.xml
+app/code/community/Dolphin/Slideshow/                                   app/code/community/Dolphin/Slideshow/
+
+app/design/adminhtml/base/default/layout/slideshow.xml                  app/design/adminhtml/base/default/layout/slideshow.xml
+app/design/frontend/base/default/template/slideshow/                    app/design/frontend/base/default/template/slideshow/
+app/design/frontend/base/default/layout/slideshow.xml                   app/design/frontend/base/default/layout/slideshow.xml
+
 app/etc/modules/Dolphin_Slideshow.xml                                   app/etc/modules/Dolphin_Slideshow.xml
-skin/frontend/base/default/css/dolphin/					skin/frontend/base/default/css/dolphin/	
-skin/frontend/base/default/images/dolphin/				skin/frontend/base/default/images/dolphin/
-skin/frontend/base/default/js/dolphin/					skin/frontend/base/default/js/dolphin/
+
+skin/frontend/base/default/css/dolphin/                                 skin/frontend/base/default/css/dolphin/
+skin/frontend/base/default/images/dolphin/                              skin/frontend/base/default/images/dolphin/
+skin/frontend/base/default/js/dolphin/                                  skin/frontend/base/default/js/dolphin/
