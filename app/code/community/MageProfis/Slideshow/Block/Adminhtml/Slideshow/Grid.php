@@ -60,6 +60,13 @@ class MageProfis_Slideshow_Block_Adminhtml_Slideshow_Grid extends Mage_Adminhtml
             'sortable'  => true,
         ));
 
+        $this->addColumn('group_name', array(
+            'header'    => Mage::helper('mp_slideshow')->__('Group Name'),
+            'align'     => 'left',
+            'index'     => 'group_name',
+            'sortable'  => true,
+        ));
+
         $this->addColumn('slide_url', array(
             'header'    => Mage::helper('mp_slideshow')->__('URL'),
             'align'     => 'left',
@@ -87,6 +94,7 @@ class MageProfis_Slideshow_Block_Adminhtml_Slideshow_Grid extends Mage_Adminhtml
             'header'    => Mage::helper('mp_slideshow')->__('Sort Order'),
             'align'     =>'left',
             'index'     => 'sort_order',
+            'width'     => '60px',
             'sortable'  => true,
         ));
 

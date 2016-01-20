@@ -16,6 +16,14 @@ class MageProfis_Slideshow_Block_Adminhtml_Slideshow_Edit_Tab_Form extends Mage_
             'name'      => 'title',
         ));
 
+        $fieldset->addField('group_name', 'text', array(
+            'label'     => Mage::helper('mp_slideshow')->__('Group Name'),
+            'note'      => Mage::helper('mp_slideshow')->__('Slides with the same group name will be shown in the same slider'),
+            'class'     => 'required-entry',
+            'required'  => true,
+            'name'      => 'group_name',
+        ));
+
         if (!Mage::app()->isSingleStoreMode()) {
             $fieldset->addField('store_id', 'multiselect', array(
                 'name'      => 'store_id[]',
