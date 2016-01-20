@@ -8,6 +8,19 @@ class MageProfis_Slideshow_Block_Slideshow extends Mage_Catalog_Block_Product_Vi
         return parent::_prepareLayout();
     }
 
+    public function getBanners()
+    {
+        $bannerCollection = Mage::getModel('mp_slideshow/slideshow')
+            ->getCollection()
+            ->addStoreFilter()
+            ->addFieldToFilter('filename', array('neq' => ''))
+            ->addFieldToFilter('status', array('eq' => '1'))
+            ->setOrder('sort_order', 'ASC')
+        ;
+
+        return $bannerCollection;
+    }
+
     public function getProduct($sku)
     {
         $item = Mage::getModel('catalog/product')->getCollection()

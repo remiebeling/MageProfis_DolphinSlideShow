@@ -1,16 +1,10 @@
 <?php if (Mage::getStoreConfig('slideshow/general/enable')): ?>
     <?php
-        $bannerCollections = Mage::getModel('mp_slideshow/slideshow')
-            ->getCollection()
-            ->addStoreFilter()
-            ->addFieldToFilter('filename', array('neq' => ''))
-            ->addFieldToFilter('status', array('eq' => '1'))
-            ->setOrder('sort_order', 'ASC')
-        ;
+        $bannerCollection = $this->getBanners();
     ?>
-    <?php if (count($bannerCollections) > 0): ?>
+    <?php if (count($bannerCollection) > 0): ?>
         <div id="main-slider">
-            <?php foreach ($bannerCollections as $item): ?>
+            <?php foreach ($bannerCollection as $item): ?>
                 <div class="item">
                     <?php if ($item->getSlideUrl()): ?>
                         <a href="<?php echo $item->getSlideUrl() ?>" class="main-link" target="<?php echo $item->getSlideTarget() ?>">
