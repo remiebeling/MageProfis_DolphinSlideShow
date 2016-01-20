@@ -2,6 +2,19 @@
 
 class MageProfis_Slideshow_Helper_Data extends Mage_Core_Helper_Abstract
 {
+    const XML_PATH_SLIDER_DRIVER = 'mp_slideshow/general/driver';
+
+    /**
+     *
+     * @return stringGet currently selected driver (slideshow js framework)
+     *
+     * @return string Driver name
+     */
+    public function getDriver()
+    {
+        return Mage::getStoreConfig(self::XML_PATH_SLIDER_DRIVER);
+    }
+
     public function getSlidesPath()
     {
         return 'slideshow' . '/' . 'slides' . '/';
@@ -40,5 +53,85 @@ class MageProfis_Slideshow_Helper_Data extends Mage_Core_Helper_Abstract
             $resizedURL = $imageURL;
          }
          return $resizedURL;
+    }
+
+    /**
+     * Get slider JS file
+     *
+     * @return string JS file
+     */
+    public function getSliderJsFile()
+    {
+        $driver = Mage::helper('mp_slideshow')->getDriver();
+
+        if (MageProfis_Slideshow_Model_Source_Driver::MP_SLIDESHOW_DRIVER_SLICK == $driver) {
+            return 'js/mp_slideshow/slick/slick.min.js';
+        }
+
+        return 'js/mp_slideshow/owl/owl.carousel.min.js';
+    }
+
+    /**
+     * Get slider main CSS file
+     *
+     * @return string CSS main file
+     */
+    public function getSliderCssFile()
+    {
+        $driver = Mage::helper('mp_slideshow')->getDriver();
+
+        if (MageProfis_Slideshow_Model_Source_Driver::MP_SLIDESHOW_DRIVER_SLICK == $driver) {
+            return 'css/mp_slideshow/slick/slick.css';
+        }
+
+        return 'css/mp_slideshow/owl/owl.carousel.css';
+    }
+
+    /**
+     * Get slider theme CSS file
+     *
+     * @return string CSS theme file
+     */
+    public function getSliderCssThemeFile()
+    {
+        $driver = Mage::helper('mp_slideshow')->getDriver();
+
+        if (MageProfis_Slideshow_Model_Source_Driver::MP_SLIDESHOW_DRIVER_SLICK == $driver) {
+            return 'css/mp_slideshow/slick/slick-theme.css';
+        }
+
+        return 'css/mp_slideshow/owl/owl.theme.css';
+    }
+
+    /**
+     * Get slider transition CSS file
+     *
+     * @return string CSS transition file
+     */
+    public function getSliderCssTransitionFile()
+    {
+        $driver = Mage::helper('mp_slideshow')->getDriver();
+
+        if (MageProfis_Slideshow_Model_Source_Driver::MP_SLIDESHOW_DRIVER_SLICK == $driver) {
+            return '';
+        }
+
+        return 'css/mp_slideshow/owl/owl.transitions.css';
+    }
+
+    /**
+     * Get slider init JS file
+     *
+     * @return string JS init file
+     */
+    public function getJsInitFile()
+    {
+        $driver = Mage::helper('mp_slideshow')->getDriver();
+
+        if (MageProfis_Slideshow_Model_Source_Driver::MP_SLIDESHOW_DRIVER_SLICK == $driver) {
+            return Mage::getDesign()->getSkinUrl('js/mp_slideshow/slick/init.js');
+        }
+
+        return Mage::getDesign()->getSkinUrl('js/mp_slideshow/owl/init.js');
     }
 }

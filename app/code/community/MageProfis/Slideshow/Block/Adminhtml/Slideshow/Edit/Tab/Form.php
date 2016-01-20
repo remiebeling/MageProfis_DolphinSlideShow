@@ -7,7 +7,7 @@ class MageProfis_Slideshow_Block_Adminhtml_Slideshow_Edit_Tab_Form extends Mage_
     {
         $form = new Varien_Data_Form();
         $this->setForm($form);
-        $fieldset = $form->addFieldset('slideshow_form', array('legend' => Mage::helper('mp_slideshow')->__('Item information')));
+        $fieldset = $form->addFieldset('slideshow_form', array('legend' => Mage::helper('mp_slideshow')->__('General')));
 
         $fieldset->addField('title', 'text', array(
             'label'     => Mage::helper('mp_slideshow')->__('Title'),

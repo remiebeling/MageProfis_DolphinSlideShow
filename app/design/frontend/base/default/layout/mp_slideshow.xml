@@ -4,21 +4,29 @@
     <cms_index_index>
         <reference name="head">
             <action method="addCss">
-                <name>css/dolphin/owl.carousel.css</name>
+                <name helper="mp_slideshow/getSliderCssFile"/>
             </action>
             <action method="addCss">
-                <name>css/dolphin/owl.theme.css</name>
+                <name helper="mp_slideshow/getSliderCssThemeFile"/>
             </action>
             <action method="addCss">
-                <name>css/dolphin/owl.transitions.css</name>
+                <name helper="mp_slideshow/getSliderCssTransitionFile"/>
             </action>
             <action method="addItem">
                 <type>skin_js</type>
-                <name>js/dolphin/owl/owl.carousel.min.js</name>
+                <name helper="mp_slideshow/getSliderJsFile"/>
             </action>
         </reference>
+
+        <block type="mp_slideshow/slideshow" name="mp_slideshow"/>
         <reference name="content">
-            <block type="mp_slideshow/slideshow" name="slide.show" template="mp_slideshow/slideshow.phtml" before="-"/>
+            <action method="insert" ifconfig="mp_slideshow/general/enable">
+                <block>mp_slideshow</block>
+            </action>
+        </reference>
+
+        <reference name="before_body_end">
+            <block type="core/template" name="mp_slideshow_init" template="mp_slideshow/init.phtml"/>
         </reference>
     </cms_index_index>
 </layout>

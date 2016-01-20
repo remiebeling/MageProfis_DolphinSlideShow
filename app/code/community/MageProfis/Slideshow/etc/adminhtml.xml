@@ -9,7 +9,7 @@
                             <config>
                                 <children>
                                     <mp_slideshow translate="title" module="mp_slideshow">
-                                        <title>Slideshow Setting</title>
+                                        <title>Slideshow Settings</title>
                                     </mp_slideshow>
                                 </children>
                             </config>
@@ -20,16 +20,14 @@
         </resources>
     </acl>
     <menu>
-        <mp_slideshow module="mp_slideshow">
-            <title>Slideshow</title>
-            <sort_order>99</sort_order>
+        <cms>
             <children>
-                <items module="mp_slideshow">
-                    <title>Manage Items</title>
-                    <sort_order>0</sort_order>
+                <mp_slideshow translate="title" module="mp_slideshow">
+                    <title>Manage Slideshows</title>
                     <action>adminhtml/slideshow_slideshow/index</action>
-                </items>
+                    <sort_order>11</sort_order>
+                </mp_slideshow>
             </children>
-        </mp_slideshow>
+        </cms>
     </menu>
 </config>

@@ -8,6 +8,23 @@ class MageProfis_Slideshow_Block_Slideshow extends Mage_Catalog_Block_Product_Vi
         return parent::_prepareLayout();
     }
 
+    /**
+     * Get template depending upon driver selection in system configuration
+     *
+     * @return string Template
+     */
+    public function getTemplate()
+    {
+        $driver = Mage::helper('mp_slideshow')->getDriver();
+
+        $template = 'mp_slideshow/owl.phtml';
+        if (MageProfis_Slideshow_Model_Source_Driver::MP_SLIDESHOW_DRIVER_SLICK == $driver) {
+            $template = 'mp_slideshow/slick.phtml';
+        }
+
+        return $template;
+    }
+
     public function getBanners()
     {
         $bannerCollection = Mage::getModel('mp_slideshow/slideshow')

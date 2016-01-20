@@ -90,14 +90,6 @@ class MageProfis_Slideshow_Block_Adminhtml_Slideshow_Grid extends Mage_Adminhtml
             'sortable'  => true,
         ));
 
-        $this->addColumn('cat_id', array(
-            'header'    => Mage::helper('mp_slideshow')->__('Kategorie Id'),
-            'align'     => 'left',
-            'width'     => '20px',
-            'index'     => 'cat_id',
-            'sortable'  => true,
-        ));
-
         $this->addColumn('status', array(
             'header'    => Mage::helper('mp_slideshow')->__('Status'),
             'align'     => 'left',
@@ -105,8 +97,8 @@ class MageProfis_Slideshow_Block_Adminhtml_Slideshow_Grid extends Mage_Adminhtml
             'index'     => 'status',
             'type'      => 'options',
             'options'   => array(
-                1 => 'Active',
-                0 => 'Inactive',
+                1 => Mage::helper('mp_slideshow')->__('Active'),
+                0 => Mage::helper('mp_slideshow')->__('Inactive'),
             ),
         ));
 

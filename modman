@@ -1,9 +1,13 @@
 app/code/community/MageProfis/Slideshow/                                app/code/community/MageProfis/Slideshow/
 
+app/design/adminhtml/default/default/layout/mp_slideshow.xml            app/design/adminhtml/default/default/layout/mp_slideshow.xml
 app/design/frontend/base/default/template/mp_slideshow/                 app/design/frontend/base/default/template/mp_slideshow/
 app/design/frontend/base/default/layout/mp_slideshow.xml                app/design/frontend/base/default/layout/mp_slideshow.xml
 
 app/etc/modules/MageProfis_Slideshow.xml                                app/etc/modules/MageProfis_Slideshow.xml
+
+app/locale/de_DE/MageProfis_Slideshow.csv                               app/locale/de_DE/MageProfis_Slideshow.csv
+app/locale/en_US/MageProfis_Slideshow.csv                               app/locale/en_US/MageProfis_Slideshow.csv
 
 skin/frontend/base/default/css/mp_slideshow/                            skin/frontend/base/default/css/mp_slideshow/
 skin/frontend/base/default/images/mp_slideshow/                         skin/frontend/base/default/images/mp_slideshow/

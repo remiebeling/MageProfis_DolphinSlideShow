@@ -5,12 +5,13 @@ class MageProfis_Slideshow_Adminhtml_Slideshow_SlideshowController extends Mage_
     protected function _initAction()
     {
         $this->loadLayout()
-            ->_setActiveMenu('mp_slideshow/manage_slideshow')
-            ->_addBreadcrumb(Mage::helper('adminhtml')->__('Items Manager'), Mage::helper('adminhtml')->__('Item Manager'));
+            ->_setActiveMenu('cms/mp_slideshow')
+            ->_addBreadcrumb(Mage::helper('mp_slideshow')->__('Manage Slideshows'), Mage::helper('adminhtml')->__('Manage Slideshows'));
         return $this;
     }
 
-    public function indexAction() {
+    public function indexAction()
+    {
         $this->_initAction();
         $this->_addContent($this->getLayout()->createBlock('mp_slideshow/adminhtml_slideshow'));
         $this->renderLayout();
@@ -19,7 +20,7 @@ class MageProfis_Slideshow_Adminhtml_Slideshow_SlideshowController extends Mage_
     public function editAction()
     {
         $slideshowId     = $this->getRequest()->getParam('id');
-        $slideshowModel  = Mage::getModel('slideshow/slideshow')->load($slideshowId);
+        $slideshowModel  = Mage::getModel('mp_slideshow/slideshow')->load($slideshowId);
 
         if ($slideshowModel->getId() || $slideshowId == 0) {
 
@@ -28,8 +29,7 @@ class MageProfis_Slideshow_Adminhtml_Slideshow_SlideshowController extends Mage_
             $this->loadLayout();
             $this->_setActiveMenu('mp_slideshow/manage_slideshow');
 
-            $this->_addBreadcrumb(Mage::helper('adminhtml')->__('Item Manager'), Mage::helper('adminhtml')->__('Item Manager'));
-            $this->_addBreadcrumb(Mage::helper('adminhtml')->__('Item News'), Mage::helper('adminhtml')->__('Item News'));
+            $this->_addBreadcrumb(Mage::helper('mp_slideshow')->__('Slideshow Item Manager'), Mage::helper('mp_slideshow')->__('Slideshow Item Manager'));
 
             $this->getLayout()->getBlock('head')->setCanLoadExtJs(true);
 
@@ -38,7 +38,7 @@ class MageProfis_Slideshow_Adminhtml_Slideshow_SlideshowController extends Mage_
 
             $this->renderLayout();
         } else {
-            Mage::getSingleton('adminhtml/session')->addError(Mage::helper('mp_slideshow')->__('Item does not exist'));
+            Mage::getSingleton('adminhtml/session')->addError(Mage::helper('mp_slideshow')->__('Slide item does not exist'));
             $this->_redirect('*/*/');
         }
     }
@@ -112,7 +112,7 @@ class MageProfis_Slideshow_Adminhtml_Slideshow_SlideshowController extends Mage_
                     ->save()
                 ;
 
-                Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('adminhtml')->__('Item was successfully saved'));
+                Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('adminhtml')->__('Slide item was successfully saved'));
                 Mage::getSingleton('adminhtml/session')->setSlideshowData(false);
 
                 $this->_redirect('*/*/');
@@ -136,7 +136,7 @@ class MageProfis_Slideshow_Adminhtml_Slideshow_SlideshowController extends Mage_
                 $slideshowModel->setId($this->getRequest()->getParam('id'))
                     ->delete();
 
-                Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('adminhtml')->__('Item was successfully deleted'));
+                Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('adminhtml')->__('Slide item was successfully deleted'));
                 $this->_redirect('*/*/');
             } catch (Exception $e) {
                 Mage::getSingleton('adminhtml/session')->addError($e->getMessage());

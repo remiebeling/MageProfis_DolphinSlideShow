@@ -7,8 +7,8 @@ class MageProfis_Slideshow_Block_Adminhtml_Slideshow_Edit extends Mage_Adminhtml
         parent::__construct();
 
         $this->_objectId = 'id';
-        $this->_blockGroup = 'slideshow';
-        $this->_controller = 'adminhtml_mageprofis_slideshow'; // so richtig???
+        $this->_blockGroup = 'mp_slideshow';
+        $this->_controller = 'adminhtml_slideshow';
 
         $this->_updateButton('save', 'label', Mage::helper('mp_slideshow')->__('Save Item'));
         $this->_updateButton('delete', 'label', Mage::helper('mp_slideshow')->__('Delete Item'));

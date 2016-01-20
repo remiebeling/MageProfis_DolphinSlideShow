@@ -3,9 +3,9 @@ class MageProfis_Slideshow_Block_Adminhtml_Slideshow extends Mage_Adminhtml_Bloc
 {
     public function __construct()
     {
-        $this->_controller = 'adminhtml_slideshow_slideshow';
-        $this->_blockGroup = 'slideshow';
-        $this->_headerText = Mage::helper('mp_slideshow')->__('Item Manager');
+        $this->_controller = 'adminhtml_slideshow';
+        $this->_blockGroup = 'mp_slideshow';
+        $this->_headerText = Mage::helper('mp_slideshow')->__('Manage Slideshows');
         $this->_addButtonLabel = Mage::helper('mp_slideshow')->__('Add Item');
         parent::__construct();
     }

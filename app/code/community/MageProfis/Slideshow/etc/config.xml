@@ -6,6 +6,18 @@
         </MageProfis_Slideshow>
     </modules>
 
+    <adminhtml>
+        <translate>
+            <modules>
+                <MageProfis_Slideshow>
+                    <files>
+                        <default>MageProfis_Slideshow.csv</default>
+                    </files>
+                </MageProfis_Slideshow>
+            </modules>
+        </translate>
+    </adminhtml>
+
     <frontend>
         <layout>
             <updates>
@@ -55,9 +67,10 @@
     </global>
 
     <default>
-        <slideshow>
+        <mp_slideshow>
             <general>
                 <enable>1</enable>
+                <driver>owl</driver>
                 <width>900</width>
                 <height>320</height>
                 <overlayer>false</overlayer>
@@ -83,7 +96,7 @@
                 <loader_padding>2</loader_padding>
                 <loader_stroke>7</loader_stroke>
             </effects>
-        </slideshow>
+        </mp_slideshow>
     </default>
 
     <admin>
