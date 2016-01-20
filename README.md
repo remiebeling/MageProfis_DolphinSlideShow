@@ -1,3 +1,3 @@
-# MageProfis_DolphinSlideShow
+# MageProfis_Slideshow
 
-Based on Dolphin_Slideshow module
+
