@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <mp_slideshow translate="title" module="mp_slideshow">
+                                        <title>Slideshow Setting</title>
+                                    </mp_slideshow>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    <menu>
+        <mp_slideshow module="mp_slideshow">
+            <title>Slideshow</title>
+            <sort_order>99</sort_order>
+            <children>
+                <items module="mp_slideshow">
+                    <title>Manage Items</title>
+                    <sort_order>0</sort_order>
+                    <action>adminhtml/slideshow_slideshow/index</action>
+                </items>
+            </children>
+        </mp_slideshow>
+    </menu>
+</config>

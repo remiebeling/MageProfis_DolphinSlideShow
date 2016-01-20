@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<layout>
+    <!-- Add JS, CSS and slider to homepage -->
+    <cms_index_index>
+        <reference name="head">
+            <action method="addCss">
+                <name>css/dolphin/owl.carousel.css</name>
+            </action>
+            <action method="addCss">
+                <name>css/dolphin/owl.theme.css</name>
+            </action>
+            <action method="addCss">
+                <name>css/dolphin/owl.transitions.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/dolphin/owl/owl.carousel.min.js</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="mp_slideshow/slideshow" name="slide.show" template="mp_slideshow/slideshow.phtml" before="-"/>
+        </reference>
+    </cms_index_index>
+</layout>
