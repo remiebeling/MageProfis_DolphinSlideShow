@@ -134,4 +134,17 @@ class MageProfis_Slideshow_Helper_Data extends Mage_Core_Helper_Abstract
 
         return Mage::getDesign()->getSkinUrl('js/mp_slideshow/owl/init.js');
     }
+
+    /**
+     * Check if a string contains valid JSON data
+     *
+     * @param string $string Test string
+     *
+     * @return boolean
+     */
+    public function isValidJson($string)
+    {
+        json_decode($string);
+        return (json_last_error() == JSON_ERROR_NONE);
+    }
 }
