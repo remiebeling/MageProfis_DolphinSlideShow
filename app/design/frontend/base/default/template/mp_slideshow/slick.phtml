@@ -1,0 +1,16 @@
+<?php $bannerCollection = $this->getBanners(); ?>
+<?php if ($bannerCollection->getSize() > 0): ?>
+    <div class="slick-slider">
+        <?php foreach ($bannerCollection as $item): ?>
+            <div>
+                <?php if ($item->getSlideUrl()): ?>
+                    <a href="<?php echo $item->getSlideUrl() ?>" target="<?php echo $item->getSlideTarget() ?>">
+                <?php endif; ?>
+                <img data-lazy="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . $item->getFilename(); ?>"/>
+                <?php if ($item->getSlideUrl()): ?>
+                    </a>
+                <?php endif; ?>
+            </div>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>

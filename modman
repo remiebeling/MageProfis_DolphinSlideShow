@@ -1,11 +1,14 @@
-app/code/community/Dolphin/Slideshow/                                   app/code/community/Dolphin/Slideshow/
+app/code/community/MageProfis/Slideshow/                                app/code/community/MageProfis/Slideshow/
 
-app/design/adminhtml/base/default/layout/slideshow.xml                  app/design/adminhtml/base/default/layout/slideshow.xml
-app/design/frontend/base/default/template/slideshow/                    app/design/frontend/base/default/template/slideshow/
-app/design/frontend/base/default/layout/slideshow.xml                   app/design/frontend/base/default/layout/slideshow.xml
+app/design/adminhtml/default/default/layout/mp_slideshow.xml            app/design/adminhtml/default/default/layout/mp_slideshow.xml
+app/design/frontend/base/default/template/mp_slideshow/                 app/design/frontend/base/default/template/mp_slideshow/
+app/design/frontend/base/default/layout/mp_slideshow.xml                app/design/frontend/base/default/layout/mp_slideshow.xml
 
-app/etc/modules/Dolphin_Slideshow.xml                                   app/etc/modules/Dolphin_Slideshow.xml
+app/etc/modules/MageProfis_Slideshow.xml                                app/etc/modules/MageProfis_Slideshow.xml
 
-skin/frontend/base/default/css/dolphin/                                 skin/frontend/base/default/css/dolphin/
-skin/frontend/base/default/images/dolphin/                              skin/frontend/base/default/images/dolphin/
-skin/frontend/base/default/js/dolphin/                                  skin/frontend/base/default/js/dolphin/
+app/locale/de_DE/MageProfis_Slideshow.csv                               app/locale/de_DE/MageProfis_Slideshow.csv
+app/locale/en_US/MageProfis_Slideshow.csv                               app/locale/en_US/MageProfis_Slideshow.csv
+
+skin/frontend/base/default/css/mp_slideshow/                            skin/frontend/base/default/css/mp_slideshow/
+skin/frontend/base/default/images/mp_slideshow/                         skin/frontend/base/default/images/mp_slideshow/
+skin/frontend/base/default/js/mp_slideshow/                             skin/frontend/base/default/js/mp_slideshow/

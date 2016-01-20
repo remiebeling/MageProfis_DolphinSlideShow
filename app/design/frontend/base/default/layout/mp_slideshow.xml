@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<layout>
+    <!-- Add JS, CSS and slider to homepage -->
+    <cms_index_index>
+        <reference name="head">
+            <action method="addCss">
+                <name helper="mp_slideshow/getSliderCssFile"/>
+            </action>
+            <action method="addCss">
+                <name helper="mp_slideshow/getSliderCssThemeFile"/>
+            </action>
+            <action method="addCss">
+                <name helper="mp_slideshow/getSliderCssTransitionFile"/>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name helper="mp_slideshow/getSliderJsFile"/>
+            </action>
+        </reference>
+
+        <block type="mp_slideshow/slideshow" name="mp_slideshow"/>
+        <reference name="content">
+            <action method="insert" ifconfig="mp_slideshow/general/enable">
+                <block>mp_slideshow</block>
+            </action>
+        </reference>
+
+        <reference name="before_body_end">
+            <block type="core/template" name="mp_slideshow_init" template="mp_slideshow/init.phtml"/>
+        </reference>
+    </cms_index_index>
+</layout>
