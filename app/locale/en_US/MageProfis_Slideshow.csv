@@ -1,9 +1,14 @@
+"MageProfis - Slideshow","MageProfis - Slideshow"
 "Slideshow","Slideshow"
 "Slideshow Settings","Slideshow Settings"
 "Slideshow Item Manager","Slideshow Item Manager"
 "Manage Slideshows","Manage Slideshows"
+"Displays a slideshow","Displays a slideshow"
 "General","General"
 "Enable","Enable"
+"Group Name","Group Name"
+"Group name as entered in slide","Group name as entered in slide"
+"Slides with the same group name will be shown in the same slider","Slides with the same group name will be shown in the same slider"
 "Driver","JavaScript Framework"
 "Add Item","Add Item"
 "Save Item","Save Item"
@@ -21,6 +26,7 @@
 "Self","Self"
 "Top","Top"
 "Image File","Image File"
+"Specify a custom configuration as JSON string, see <a href=""https://github.com/kenwheeler/slick#settings"" target=""_blank"">this page</a> for available options.","Specify a custom configuration as JSON string, see <a href=""https://github.com/kenwheeler/slick#settings"" target=""_blank"">this page</a> for available options."
 
 
 

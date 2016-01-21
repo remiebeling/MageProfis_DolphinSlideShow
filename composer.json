@@ -1,0 +1,26 @@
+{
+  "name": "mageprofis/slideshow",
+  "license": "GPL-3.0",
+  "type": "magento-module",
+  "description": "Magento Slideshow Manager",
+  "homepage": "https://github.com/remiebeling/MageProfis_Slideshow",
+  "require": {
+    "php": ">=5.3",
+  },
+  "suggest": {
+    "magento-hackathon/magento-composer-installer": "*"
+  },
+  "authors": [
+    {
+      "name": "Reni Ebeling",
+      "email": "remi@mage-profis.de",
+      "role": "Author/Maintainer"
+    },
+    {
+      "name": "Volker Thiel",
+      "email": "volker@mage-profis.de",
+      "role": "Author/Maintainer"
+    }
+  ]
+}
+
