@@ -5,7 +5,7 @@
   "description": "Magento Slideshow Manager",
   "homepage": "https://github.com/remiebeling/MageProfis_Slideshow",
   "require": {
-    "php": ">=5.3",
+    "php": ">=5.3"
   },
   "suggest": {
     "magento-hackathon/magento-composer-installer": "*"
