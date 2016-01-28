@@ -25,7 +25,7 @@ class MageProfis_Slideshow_Helper_Data extends Mage_Core_Helper_Abstract
         return str_replace('/slides/', '/slides/thumbs/', $slidesPath);
     }
 
-    public function resizeImg($fileName, $width, $height = '')
+    public function resizeImg($fileName, $width, $height = null)
     {
         //$fileName = 'slideshow\slides\\'.$fileName;
 
@@ -40,10 +40,12 @@ class MageProfis_Slideshow_Helper_Data extends Mage_Core_Helper_Abstract
             //if image has already resized then just return URL
             if (file_exists($basePath) && is_file($basePath) && !file_exists($newPath)) {
 
-                $imageObj = new Varien_Image($basePath);
-                $imageObj->constrainOnly(TRUE);
-                $imageObj->keepAspectRatio(FALSE);
-                $imageObj->keepFrame(FALSE);
+                $imageObj = Varien_Image_Adapter::factory('GD2');
+                $imageObj->constrainOnly(true);
+                $imageObj->keepAspectRatio(true);
+                $imageObj->keepFrame(true);
+                $imageObj->backgroundColor(array(255,255,255));
+                $imageObj->open($basePath);
                 $imageObj->resize($width, $height);
                 $imageObj->save($newPath);
 
