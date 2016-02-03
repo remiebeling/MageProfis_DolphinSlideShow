@@ -12,14 +12,14 @@
   },
   "authors": [
     {
-      "name": "Reni Ebeling",
+      "name": "Remi Ebeling",
       "email": "remi@mage-profis.de",
       "role": "Author/Maintainer"
     },
     {
       "name": "Volker Thiel",
       "email": "volker@mage-profis.de",
-      "role": "Author/Maintainer"
+      "role": "Contributor"
     }
   ]
 }

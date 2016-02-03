@@ -6,6 +6,15 @@ implements Mage_Widget_Block_Interface
 {
     protected $_template = 'mp_slideshow/widget/default.phtml';
 
+    protected function _prepareLayout()
+    {
+        parent::_prepareLayout();
+
+        $this->helper('mp_slideshow')->appendAssetsToHeadBlock($this->getLayout()->getBlock('head'));
+
+        return $this;
+    }
+
     /**
      * Get slides for this widget, filtered by group_name
      *
