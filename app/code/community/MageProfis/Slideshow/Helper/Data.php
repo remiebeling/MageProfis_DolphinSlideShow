@@ -56,6 +56,30 @@ class MageProfis_Slideshow_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
+     * Append JS and CSS files to head block
+     *
+     * @param Mage_Page_Block_Html_Head
+     */
+    public function appendAssetsToHeadBlock($headBlock)
+    {
+        return;
+        if ($headBlock && $headBlock instanceof Mage_Page_Block_Html_Head) {
+            if ($this->getSliderCssFile()) {
+                $headBlock->addCss($this->getSliderCssFile());
+            }
+            if ($this->getSliderCssThemeFile()) {
+                $headBlock->addCss($this->getSliderCssThemeFile());
+            }
+            if ($this->getSliderCssTransitionFile()) {
+                $headBlock->addCss($this->getSliderCssTransitionFile());
+            }
+            if ($this->getSliderJsFile()) {
+                $headBlock->addItem('skin_js', $this->getSliderJsFile());
+            }
+        }
+    }
+
+    /**
      * Get slider JS file
      *
      * @return string JS file

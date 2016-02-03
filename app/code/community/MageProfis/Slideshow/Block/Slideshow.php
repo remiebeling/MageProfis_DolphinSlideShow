@@ -2,10 +2,13 @@
 
 class MageProfis_Slideshow_Block_Slideshow extends Mage_Catalog_Block_Product_View_Media
 {
-
-    public function _prepareLayout()
+    protected function _prepareLayout()
     {
-        return parent::_prepareLayout();
+        parent::_prepareLayout();
+
+        $this->helper('mp_slideshow')->appendAssetsToHeadBlock($this->getLayout()->getBlock('head'));
+
+        return $this;
     }
 
     /**
