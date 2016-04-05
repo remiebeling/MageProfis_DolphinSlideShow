@@ -63,6 +63,8 @@ class MageProfis_Slideshow_Block_Adminhtml_Slideshow_Grid extends Mage_Adminhtml
         $this->addColumn('group_name', array(
             'header'    => Mage::helper('mp_slideshow')->__('Group Name'),
             'align'     => 'left',
+            'type'      => 'options',
+            'options'   => Mage::getSingleton('mp_slideshow/source_groupname')->getAllOptions(),
             'index'     => 'group_name',
             'sortable'  => true,
         ));
