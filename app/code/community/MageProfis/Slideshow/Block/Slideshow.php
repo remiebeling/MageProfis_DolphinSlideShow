@@ -32,6 +32,7 @@ class MageProfis_Slideshow_Block_Slideshow extends Mage_Catalog_Block_Product_Vi
     {
         $bannerCollection = Mage::getModel('mp_slideshow/slideshow')
             ->getCollection()
+            ->addActiveFromToFilter()
             ->addStoreFilter()
             ->addFieldToFilter('filename', array('neq' => ''))
             ->addFieldToFilter('status', array('eq' => '1'))

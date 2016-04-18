@@ -44,4 +44,25 @@ class MageProfis_Slideshow_Model_Resource_Slideshow_Collection extends Mage_Core
         }
         return $this;
     }
+    
+    public function addActiveFromToFilter()
+    {
+        $this->addFieldToFilter(
+            'active_from',
+            array(
+                array('lteq' => Mage::getModel('core/date')->gmtDate()),
+                array('active_from', 'null'=>'')
+            )
+        );
+        
+        $this->addFieldToFilter(
+            'active_to',
+            array(
+                array('gteq' => Mage::getModel('core/date')->gmtDate()),
+                array('active_to', 'null'=>'')
+            )
+        );
+        
+        return $this;
+    }
 }
