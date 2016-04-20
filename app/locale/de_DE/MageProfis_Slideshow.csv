@@ -27,20 +27,5 @@
 "Top","Top (Elternfenster)"
 "Image File","Bilddatei"
 "Specify a custom configuration as JSON string, see <a href=""https://github.com/kenwheeler/slick#settings"" target=""_blank"">this page</a> for available options.","Geben Sie eine eigene Konfiguration als JSON-String an. <a href=""https://github.com/kenwheeler/slick#settings"" target=""_blank"">Verfügbare Optionen</a>"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+"Active from","Aktiv von"
+"Active to","Aktiv bis"

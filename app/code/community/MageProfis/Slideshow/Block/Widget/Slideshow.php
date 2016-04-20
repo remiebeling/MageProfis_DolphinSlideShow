@@ -25,12 +25,13 @@ implements Mage_Widget_Block_Interface
         if ($this->getData('group_name') != '') {
             $slides = Mage::getModel('mp_slideshow/slideshow')->getCollection()
                 ->addStoreFilter()
+                ->addActiveFromToFilter()
                 ->addFieldToFilter('group_name', $this->getData('group_name'))
                 ->addFieldToFilter('filename', array('neq' => ''))
                 ->addFieldToFilter('status', array('eq' => '1'))
                 ->setOrder('sort_order', 'ASC')
             ;
-
+            
             return $slides;
         }
 

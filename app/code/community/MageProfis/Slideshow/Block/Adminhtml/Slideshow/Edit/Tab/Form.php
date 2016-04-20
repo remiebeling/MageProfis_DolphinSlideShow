@@ -97,6 +97,24 @@ class MageProfis_Slideshow_Block_Adminhtml_Slideshow_Edit_Tab_Form extends Mage_
                 ),
             ),
         ));
+        
+        $fieldset->addField('active_from', 'date', array(
+            'label'     => Mage::helper('mp_slideshow')->__('Active from'),
+            'name'      => 'active_from',
+            'required'  => false,
+            'format'    => Mage::app()->getLocale()->getDateTimeFormat(Mage_Core_Model_Locale::FORMAT_TYPE_SHORT),
+            'image'     => $this->getSkinUrl('images/grid-cal.gif'),
+            'time'      => true
+        ));
+        
+        $fieldset->addField('active_to', 'date', array(
+            'label'     => Mage::helper('mp_slideshow')->__('Active to'),
+            'name'      => 'active_to',
+            'required'  => false,
+            'format'    => Mage::app()->getLocale()->getDateTimeFormat(Mage_Core_Model_Locale::FORMAT_TYPE_SHORT),
+            'image'     => $this->getSkinUrl('images/grid-cal.gif'),
+            'time'      => true
+        ));
 
         if (Mage::getSingleton('adminhtml/session')->getSlideshowData()) {
             $form->setValues(Mage::getSingleton('adminhtml/session')->getSlideshowData());
