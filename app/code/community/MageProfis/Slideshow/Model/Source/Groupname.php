@@ -9,6 +9,22 @@ class MageProfis_Slideshow_Model_Source_Groupname
      */
     public function toOptionArray()
     {
+        $options = array(array(
+            'value' => '',
+            'label' => Mage::helper('adminhtml')->__('-- Please Select --'),
+        ));
+        foreach ($this->getAllOptions() as $option) {
+            $options[] = array(
+                'value' => $option['group_name'],
+                'label' => $option['group_name'],
+            );
+        }
+
+        return $options;
+    }
+
+    public function getAllOptions()
+    {
         $res = Mage::getResourceModel('mp_slideshow/slideshow');
 
         $read = Mage::getModel('core/resource')->getConnection('core_read');
@@ -22,15 +38,9 @@ class MageProfis_Slideshow_Model_Source_Groupname
         $stmt = $read->query($select);
         $result = $stmt->fetchAll();
 
-        $options = array(array(
-            'value' => '',
-            'label' => Mage::helper('adminhtml')->__('-- Please Select --'),
-        ));
+        $options = array();
         foreach ($result as $item) {
-            $options[] = array(
-                'value' => $item['group_name'],
-                'label' => $item['group_name'],
-            );
+            $options[$item['group_name']] = $item['group_name'];
         }
 
         return $options;
