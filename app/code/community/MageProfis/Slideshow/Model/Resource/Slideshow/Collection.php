@@ -50,7 +50,7 @@ class MageProfis_Slideshow_Model_Resource_Slideshow_Collection extends Mage_Core
         $this->addFieldToFilter(
             'active_from',
             array(
-                array('lteq' => Mage::getModel('core/date')->gmtDate()),
+                array('lteq' => Mage::getModel('core/date')->date()),
                 array('active_from', 'null'=>'')
             )
         );
@@ -58,7 +58,7 @@ class MageProfis_Slideshow_Model_Resource_Slideshow_Collection extends Mage_Core
         $this->addFieldToFilter(
             'active_to',
             array(
-                array('gteq' => Mage::getModel('core/date')->gmtDate()),
+                array('gteq' => Mage::getModel('core/date')->date()),
                 array('active_to', 'null'=>'')
             )
         );
